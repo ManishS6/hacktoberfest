@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>  
+    <title>HTML page</title>
+    <link rel="stylesheet" type="text/css" href="temp2.css">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+    <body onload="addListM()">
+        <script>
+        jQuery(document).ready(function($) {
+	tab = $('.tabs h3 a');
+
+	tab.on('click', function(event) {
+		event.preventDefault();
+		tab.removeClass('active');
+		$(this).addClass('active');
+
+		tab_content = $(this).attr('href');
+		$('div[id$="tab-content"]').removeClass('active');
+		$(tab_content).addClass('active');
+	});
+});
+        </script>
+		<div class="header">
+			<br>
+			<text>Connections</text>
+			<a href="#" id="gotoMp" class="btn" type="button">Go Back</a>
+		</div><br>
+		<h1>Manage Connections</h1>
+    <div class="form-wrap">
+		<div class="tabs">
+			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Create New </a></h3>
+			<h3 class="login-tab"><a href="#login-tab-content">Modify Existing</a></h3>
+		</div>
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+            <center><input type="text" id="freshName" name="freshName" size="25" placeholder="Name">
+            <input type="text" id="freshGstin" name="freshGstin" size="25" placeholder="GSTIN">
+            <textarea type="text" id="freshAddr" name="freshAddr" placeholder="Address" size="25"></textarea>
+            <input type="text" id="Balance" name="Balance" size="25" placeholder="Balance"><br><br>
+            <a id="createConn" class="btn" type="button">Create Connections</a></center>
+			</div>
+
+			<div id="login-tab-content">
+            <center><select id="freshNameM" name="freshNameM" onchange="loadM()">
+                <option>Choose the Name of the party</option>
+                </select>
+            <input type="text" id="freshGstinM" name="freshGstinM" size="25" placeholder="GSTIN">
+            <textarea type="text" id="freshAddrM" name="freshAddrM" placeholder="Address" size="25"></textarea><br>
+            <input type="text" id="BalanceM" name="BalanceM" size="25" placeholder="Balance"><br><br>
+            <a id="modifyConn" class="btn" type="button">Modify Connections</a></center>
+			</div>
+		</div>
+	</div>
+    
+    </body>
+</html>
